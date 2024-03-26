@@ -29,7 +29,7 @@ public class Snake : MonoBehaviour
     private void Rotate()
     {
         Quaternion targetRotation = Quaternion.LookRotation(_targetDirection);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotateSpeed * Time.deltaTime);
+        _head.rotation = Quaternion.RotateTowards(_head.rotation, targetRotation, _rotateSpeed * Time.deltaTime);
     }
 
     private void Move()
@@ -41,5 +41,10 @@ public class Snake : MonoBehaviour
     public void LookAt(Vector3 cursorPosition)
     {
         _targetDirection = cursorPosition - _head.position;
+    }
+
+    public void GetMoveInfo(out Vector3 position)
+    {
+        position = transform.position;
     }
 }
