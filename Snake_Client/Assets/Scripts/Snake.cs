@@ -37,7 +37,7 @@ public class Snake : MonoBehaviour
         transform.position += _head.forward * Time.deltaTime * _speed;
     }
 
-    private Vector3 _targetDirection = Vector3.zero;
+    private Vector3 _targetDirection = Vector3.forward;
     public void LookAt(Vector3 cursorPosition)
     {
         _targetDirection = cursorPosition - _head.position;
