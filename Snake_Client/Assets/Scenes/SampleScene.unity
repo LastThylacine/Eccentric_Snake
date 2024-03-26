@@ -158,6 +158,8 @@ MonoBehaviour:
     type: 3}
   _snakePrefab: {fileID: 620222396743541285, guid: 1c136dfc88e731243bf5944ed4840767,
     type: 3}
+  _controller: {fileID: 0}
+  _snake: {fileID: 0}
 --- !u!4 &420514
 Transform:
   m_ObjectHideFlags: 0
@@ -8186,6 +8188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colyseusSettings: {fileID: 11400000, guid: 3bce5aeb04b3a6d42a80e5be7bfd5f4e, type: 2}
+  _playerAim: {fileID: 3300720175768577762, guid: aa64ac969f590e048afc69d25ca16f0a,
+    type: 3}
   _controllerPrefab: {fileID: 7016182922496977933, guid: 3a317074f5440fa49acb1e922528fcf5,
     type: 3}
   _snakePrefab: {fileID: 620222396743541285, guid: 1c136dfc88e731243bf5944ed4840767,
