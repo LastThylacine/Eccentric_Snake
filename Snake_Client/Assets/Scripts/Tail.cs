@@ -20,7 +20,7 @@ public class Tail : MonoBehaviour
         _positionHistory.Add(_head.position);
         _rotationHistory.Add(_head.rotation);
         _positionHistory.Add(transform.position);
-        _rotationHistory.Add(transform.rotation); 
+        _rotationHistory.Add(transform.rotation);
 
         SetDetailCount(detailCount);
     }
@@ -55,6 +55,14 @@ public class Tail : MonoBehaviour
         _details.Insert(0, detail);
         _positionHistory.Add(position);
         _rotationHistory.Add(rotation);
+    }
+
+    public void UpdateColors(Color color)
+    {
+        for (int i = 0; i < _details.Count; i++)
+        {
+            _details[i].GetComponent<Skin>().SetColor(color);
+        }
     }
 
     private void RemoveDetail()

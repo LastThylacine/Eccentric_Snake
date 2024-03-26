@@ -4,20 +4,36 @@ public class Snake : MonoBehaviour
 {
     public float Speed { get { return _speed; } }
 
+    [SerializeField] private Skin _skin;
     [SerializeField] private Tail _tailPrefab;
     [SerializeField] private Transform _head;
     [SerializeField] private float _speed = 2f;
     private Tail _tail;
+    private Color _color;
 
-    public void Init(int detailCount)
+    public void Init(int detailCount, Color color)
     {
         _tail = Instantiate(_tailPrefab, transform.position, Quaternion.identity);
         _tail.Init(_head, _speed, detailCount);
+        UpdateColors(color);
+    }
+
+    public void UpdateColors(Color color)
+    {
+        _color = color;
+        _skin.SetColor(color);
+        _tail.UpdateColors(color);
     }
 
     public void SetDetailCount(int detailCount)
     {
         _tail.SetDetailCount(detailCount);
+        _tail.UpdateColors(_color);
+    }
+
+    public Color GetColor()
+    {
+        return _color;
     }
 
     public void Destroy()

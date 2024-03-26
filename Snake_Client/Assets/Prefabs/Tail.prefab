@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8331300250291995709}
   - component: {fileID: 2955296800602130201}
   - component: {fileID: 5677066916430778717}
+  - component: {fileID: 8518820017553827323}
   m_Layer: 0
   m_Name: Tail
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   _detailPrefab: {fileID: 4626846512811333064, guid: 61774f5ebc522ce47bb6df88f015a24a,
     type: 3}
   _detailDistance: 1.05
+  _skin: {fileID: 8518820017553827323}
 --- !u!65 &5677066916430778717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70,6 +72,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &8518820017553827323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4704822480408222323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cdd0195c7ebf7b47bf045c9d53de8b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 6768120240346628249}
+  _colorMultiplier: 0.5
 --- !u!1001 &2114073906902118246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -141,6 +158,12 @@ PrefabInstance:
 --- !u!4 &1935433454794557581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6f36cd16b6c365f4cad37fb84deec7ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 2114073906902118246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6768120240346628249 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4558906730386509825, guid: 6f36cd16b6c365f4cad37fb84deec7ec,
     type: 3}
   m_PrefabInstance: {fileID: 2114073906902118246}
   m_PrefabAsset: {fileID: 0}

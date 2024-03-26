@@ -32,6 +32,15 @@ public class EnemyController : MonoBehaviour
                 case "d":
                     _snake.SetDetailCount((byte)changes[i].Value);
                     break;
+                case "r":
+                    Debug.Log("R врага - " + (byte)changes[i].Value);
+                    break;
+                case "g":
+                    Debug.Log("G врага - " + (byte)changes[i].Value);
+                    break;
+                case "b":
+                    Debug.Log("B врага - " + (byte)changes[i].Value);
+                    break;
                 default:
                     Debug.LogWarning("Ќе обрабатываетс€ изменение пол€ " + changes[i].Field);
                     break;

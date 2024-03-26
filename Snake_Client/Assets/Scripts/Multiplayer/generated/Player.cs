@@ -15,6 +15,15 @@ public partial class Player : Schema {
 	public float z = default(float);
 
 	[Type(2, "uint8")]
+	public byte r = default(byte);
+
+	[Type(3, "uint8")]
+	public byte g = default(byte);
+
+	[Type(4, "uint8")]
+	public byte b = default(byte);
+
+	[Type(5, "uint8")]
 	public byte d = default(byte);
 }
 
