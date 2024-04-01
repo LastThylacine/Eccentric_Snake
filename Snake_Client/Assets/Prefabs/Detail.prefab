@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderers:
   - {fileID: 3990422905305822172}
-  _colorMultiplier: 0.75
+  _colorMultiplier: 0.7
 --- !u!1001 &8636591298032786467
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -50,7 +50,6 @@ MonoBehaviour:
   _detailPrefab: {fileID: 4626846512811333064, guid: 61774f5ebc522ce47bb6df88f015a24a,
     type: 3}
   _detailDistance: 1.05
-  _skin: {fileID: 8518820017553827323}
 --- !u!65 &5677066916430778717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderers:
   - {fileID: 6768120240346628249}
-  _colorMultiplier: 0.5
+  _colorMultiplier: 0.3
 --- !u!1001 &2114073906902118246
 PrefabInstance:
   m_ObjectHideFlags: 0
