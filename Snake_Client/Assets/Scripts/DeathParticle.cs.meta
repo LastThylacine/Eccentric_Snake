@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: da173285448980748a5331165918ef09
+guid: d8e7707195b8d2b46b449cbe9860bb2d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _deathParticle: {fileID: 6337447475170569117, guid: f18bc8e86746677419b9e0340a6aa844,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

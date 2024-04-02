@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2955296800602130201}
   - component: {fileID: 5677066916430778717}
   - component: {fileID: 8518820017553827323}
+  - component: {fileID: 439097608038551898}
   m_Layer: 0
   m_Name: Tail
   m_TagString: Untagged
@@ -86,6 +87,20 @@ MonoBehaviour:
   _renderers:
   - {fileID: 6768120240346628249}
   _colorMultiplier: 0.3
+--- !u!114 &439097608038551898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4704822480408222323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e7707195b8d2b46b449cbe9860bb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathParticle: {fileID: 6337447475170569117, guid: f18bc8e86746677419b9e0340a6aa844,
+    type: 3}
 --- !u!1001 &2114073906902118246
 PrefabInstance:
   m_ObjectHideFlags: 0
