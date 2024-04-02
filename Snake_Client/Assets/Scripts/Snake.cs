@@ -6,7 +6,7 @@ public class Snake : MonoBehaviour
 
     [SerializeField] private Skin _skin;
     [SerializeField] private Tail _tailPrefab;
-    [SerializeField] private Transform _head;
+    [field: SerializeField] public Transform _head { get; private set; }
     [SerializeField] private float _speed = 2f;
     private Tail _tail;
     private Color _color;

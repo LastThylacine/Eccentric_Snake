@@ -74,7 +74,7 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
         snake.Init(player.d, new Color32(player.r, player.g, player.b, 255));
 
         PlayerAim aim = Instantiate(_playerAim, position, rotation);
-        aim.Init(snake.Speed);
+        aim.Init(snake._head, snake.Speed);
 
         Controller controller = Instantiate(_controllerPrefab);
         controller.Init(aim, player, snake);

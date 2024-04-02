@@ -103,7 +103,7 @@ MonoBehaviour:
   _skin: {fileID: 7025829886110687842}
   _tailPrefab: {fileID: 2955296800602130201, guid: 4e87141c531dec04d8b92ad593319e66,
     type: 3}
-  _head: {fileID: 3402005771117672240}
+  <_head>k__BackingField: {fileID: 3402005771117672240}
   _speed: 4
 --- !u!114 &7025829886110687842
 MonoBehaviour:

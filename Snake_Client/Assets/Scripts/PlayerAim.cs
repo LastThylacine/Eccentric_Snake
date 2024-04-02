@@ -1,13 +1,17 @@
+using System;
 using UnityEngine;
 
 public class PlayerAim : MonoBehaviour
 {
+    [SerializeField] private float _overlapRadius = 0.5f;
     [SerializeField] private float _rotateSpeed = 90f;
+    private Transform _snakeHead;
     private Vector3 _targetDirection = Vector3.forward;
     private float _speed;
 
-    public void Init(float speed)
+    public void Init(Transform snakeHead, float speed)
     {
+        _snakeHead = snakeHead;
         _speed = speed;
     }
 
@@ -15,6 +19,24 @@ public class PlayerAim : MonoBehaviour
     {
         Rotate();
         Move();
+    }
+
+    private void FixedUpdate()
+    {
+        CheckCollision();
+    }
+
+    private void CheckCollision()
+    {
+        Collider[] colliders = Physics.OverlapSphere(_snakeHead.position, _overlapRadius);
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].TryGetComponent(out Apple apple))
+            {
+                apple.Collect();
+            }
+        }
     }
 
     private void Rotate()
