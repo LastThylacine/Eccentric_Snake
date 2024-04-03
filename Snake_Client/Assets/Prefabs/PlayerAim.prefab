@@ -49,7 +49,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   _overlapRadius: 0.5
-  _rotateSpeed: 90
+  _rotateSpeed: 135
 --- !u!1 &8286289164987938469
 GameObject:
   m_ObjectHideFlags: 0

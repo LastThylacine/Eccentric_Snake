@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Snake : MonoBehaviour
 {
@@ -7,12 +8,13 @@ public class Snake : MonoBehaviour
     [SerializeField] private int _playerLayer = 3;
     [SerializeField] private Skin _skin;
     [SerializeField] private Tail _tailPrefab;
+    [SerializeField] private Text _name;
     [field: SerializeField] public Transform _head { get; private set; }
     [SerializeField] private float _speed = 2f;
     private Tail _tail;
     private Color _color;
 
-    public void Init(int detailCount, Color color, bool isPlayer = false)
+    public void Init(int detailCount, Color color, string name, bool isPlayer = false)
     {
         if (isPlayer)
         {
@@ -23,6 +25,7 @@ public class Snake : MonoBehaviour
                 childrens[i].gameObject.layer = _playerLayer;
             }
         }
+        _name.text = name;
         _tail = Instantiate(_tailPrefab, transform.position, Quaternion.identity);
         _tail.Init(_head, _speed, detailCount, _playerLayer, isPlayer);
         UpdateColors(color);

@@ -127,6 +127,8 @@ export class StateHandlerRoom extends Room<State> {
         const g = Math.floor(Math.random() * 255);
         const b = Math.floor(Math.random() * 255);
 
+        console.log("Присоединился пользователь с никнеймом: ", data.login);
+
         this.state.createPlayer(client.sessionId, r, g, b, data.login);
     }
 
