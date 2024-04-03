@@ -43,6 +43,9 @@ public class EnemyController : MonoBehaviour
                 case "b":
                     Debug.Log("B врага - " + (byte)changes[i].Value);
                     break;
+                case "score":
+                    MultiplayerManager.Instance.UpdateScore(_clientID, (ushort)changes[i].Value);
+                    break;
                 default:
                     Debug.LogWarning("Ќе обрабатываетс€ изменение пол€ " + changes[i].Field);
                     break;

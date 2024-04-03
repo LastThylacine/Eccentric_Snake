@@ -1,8 +1,9 @@
-using System.Collections.Generic;
-using UnityEngine;
 using Colyseus;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
-using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class MultiplayerManager : ColyseusManager<MultiplayerManager>
 {
@@ -20,7 +21,12 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
 
     private async void Connection()
     {
-        _room = await client.JoinOrCreate<State>(GameRoomName);
+        Dictionary<string, object> data = new Dictionary<string, object>()
+        {
+            {"login", PlayerSettings.Instance.Login }
+        };
+
+        _room = await client.JoinOrCreate<State>(GameRoomName, data);
         _room.OnStateChange += OnChange;
     }
 
@@ -83,6 +89,8 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
 
         Controller controller = Instantiate(_controllerPrefab);
         controller.Init(_room.SessionId, aim, player, snake);
+
+        AddLeader(_room.SessionId, player);
     }
     #endregion
 
@@ -99,10 +107,14 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
         enemy.Init(key, player, snake);
 
         _enemies.Add(key, enemy);
+
+        AddLeader(key, player);
     }
 
     private void RemoveEnemy(string key, Player value)
     {
+        RemoveLeader(key);
+
         if (!_enemies.ContainsKey(key))
         {
             Debug.LogError("ѕопытка уничтожени€ Enemy, которого не было в словаре");
@@ -135,5 +147,69 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
         apple.Destroy();
     }
 
+    #endregion
+
+    #region LeaderBoard
+
+    private class LoginScorePair
+    {
+        public string login;
+        public float score;
+    }
+
+    [SerializeField] private Text _text;
+
+    Dictionary<string, LoginScorePair> _leaders = new Dictionary<string, LoginScorePair>();
+
+    private void AddLeader(string sessionID, Player player)
+    {
+        if (_leaders.ContainsKey(sessionID)) return;
+
+        _leaders.Add(sessionID, new LoginScorePair
+        {
+            login = player.login,
+            score = player.score
+        });
+
+        UpdateBoard();
+    }
+
+    private void RemoveLeader(string sessionID)
+    {
+        if (!_leaders.ContainsKey(sessionID)) return;
+
+        _leaders.Remove(sessionID);
+
+        UpdateBoard();
+    }
+
+    public void UpdateScore(string sessionID, int score)
+    {
+        if (!_leaders.ContainsKey(sessionID)) return;
+
+        _leaders[sessionID].score = score;
+
+        UpdateBoard();
+    }
+
+    private void UpdateBoard()
+    {
+        // 1. LOGIN - ### (10)
+
+        int topCount = Mathf.Clamp(_leaders.Count, 0, 10);
+        var top10 = _leaders.OrderByDescending(pair => pair.Value.score).Take(topCount);
+
+        string text = "";
+        int i = 1;
+
+        foreach (var item in top10)
+        {
+            text += $"{i}. {item.Value.login} - {item.Value.score}\n";
+
+            i++;
+        }
+
+        _text.text = text;
+    }
     #endregion
 }

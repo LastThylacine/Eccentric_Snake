@@ -8,6 +8,7 @@ export class Vector2Float extends Schema {
 }
 
 export class Player extends Schema {
+    @type("string") login = "";
     @type("number") x = Math.floor(Math.random() * 256) - 128;
     @type("number") z = Math.floor(Math.random() * 256) - 128;
     @type("uint8") r = 0;
@@ -41,11 +42,12 @@ export class State extends Schema {
         player.d = Math.round(player.score / 3);
     }
 
-    createPlayer(sessionId: string, r: number, g: number, b: number) {
+    createPlayer(sessionId: string, r: number, g: number, b: number, login) {
         const player = new Player();
         player.r = r;
         player.g = g;
         player.b = b;
+        player.login = login;
 
         this.players.set(sessionId, player);
     }
@@ -120,12 +122,12 @@ export class StateHandlerRoom extends Room<State> {
         return true;
     }
 
-    onJoin(client: Client) {
+    onJoin(client: Client, data) {
         const r = Math.floor(Math.random() * 255);
         const g = Math.floor(Math.random() * 255);
         const b = Math.floor(Math.random() * 255);
 
-        this.state.createPlayer(client.sessionId, r, g, b);
+        this.state.createPlayer(client.sessionId, r, g, b, data.login);
     }
 
     onLeave(client) {
